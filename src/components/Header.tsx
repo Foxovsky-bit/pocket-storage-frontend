@@ -53,10 +53,13 @@ export const Header = () => {
                 </Link>
             </AppNameWrapper>
             <Menu>
+                <Link to="/">
+                    <MenuItem>Склады</MenuItem>
+                </Link>
                 <Link to="/employees">
                     <MenuItem>Сотрудники</MenuItem>
                 </Link>
-                <Link to="/">
+                <Link to="/goods">
                     <MenuItem>Товары</MenuItem>
                 </Link>
                 <Link to="/">

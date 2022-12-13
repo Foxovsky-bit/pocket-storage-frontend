@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IOption } from '../../interfaces/IOption';
 import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import {Title} from '../employee/ActionArchive'
@@ -18,11 +19,18 @@ const FlexWrapper = styled.div`
     justify-content: space-between;
 `;
 
+const jobTitles:Array<IOption> = [
+    { key: 1, value: "Должность 1" },
+    { key: 2, value: "Должность 2" },
+    { key: 3, value: "Должность 3" },
+    { key: 4, value: "Должность 4" }
+];
+
 export const EmployeeFilter = () => {
     return (
         <EmployeeFilterWrapper>
             <Title>Фильтры</Title>
-            <Dropdown/>
+            <Dropdown placeholer={"Должность"} options={jobTitles}/>
             <FlexWrapper>
                 <Button text={"Добавить сотрудника"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
                 <SearchInput/>

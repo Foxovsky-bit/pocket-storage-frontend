@@ -5,6 +5,7 @@ import { Routes, Route, Link} from 'react-router-dom';
 import { Employee } from './pages/employee';
 import { Layout } from './components/Layout'
 import { Employees } from './pages/employees';
+import { Goods } from './pages/goods';
 
 const WrapperContent = styled.div`
     margin-left:60px;
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Layout/>}>
           <Route path={"employee"} element={<Employee/>}/>
           <Route path={"employees"} element={<Employees/>}/>
+          <Route path={"goods"} element={<Goods/>}/>
         </Route>
       </Routes>
     </WrapperContent>
