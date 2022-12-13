@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { IArchieveAction } from '../interfaces/IListItem';
 import { IDevice } from '../interfaces/IDevice';
 import { IEmployee } from '../interfaces/IEmployee';
+import { IGood } from '../interfaces/IGood';
 
 const Item = styled.div`
     font-family: 'Inter';
@@ -20,7 +21,7 @@ const  ItemValue = styled.div<{size:number}>`
     width:${props => 100/props.size}%;
 `;
 
-export const List = (props:{currentList:Array<IArchieveAction | IDevice | IEmployee>}) => {
+export const List = (props:{currentList:Array<IArchieveAction | IDevice | IEmployee | IGood>}) => {
 
     return (
         <>
