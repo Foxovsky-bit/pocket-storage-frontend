@@ -1,0 +1,46 @@
+import styled from 'styled-components';
+
+const SearchWrapper = styled.div`
+    display:flex;
+    height: 42px;
+    width:60%;
+    margin-left:10px;
+`;
+
+const Input = styled.input`
+    width: 75%;
+    padding: 0;
+    border-width: 0px;
+    height: 42px;
+    padding-left: 16px;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 35px 0 0 35px;
+    background: #F7F7F7;
+`;
+
+const SearchButton = styled.button`
+    width:200px;
+    border-radius: 0 35px 35px 0;
+    background-color: rgba(169, 62, 207, 1);
+    color:white;
+    font-family: 'Fira Sans Extra Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    &:hover {
+        background-color: rgb(126,34,158)
+    }
+`;
+
+export const SearchInput = () => {
+
+    return (
+        <>
+            <SearchWrapper>
+                <Input type="text" placeholder="Введите название или SKU товара"/>
+                <SearchButton>Поиск</SearchButton>
+            </SearchWrapper>
+        </>
+    )
+}

@@ -24,13 +24,14 @@ const ButtonText = styled.div`
 
 const ContentWrapper = styled.div`
     display:flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 `;
 
 const Img = styled.img`
     height:20px;
     width:20px;
+    margin-right:15px;
 `
 
 export const Button = (props:{text:string,color:string,img:string,width:string,textColor:string,border:string,margin:string}) => {
