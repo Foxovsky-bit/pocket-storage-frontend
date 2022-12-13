@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.header`
@@ -22,6 +23,7 @@ const AppName = styled.div`
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
+    color:black;
 `;
 
 const Menu = styled.ul`
@@ -44,14 +46,22 @@ export const Header = () => {
         <Wrapper>
             <AppNameWrapper>
                 <Logo src={"../img/logo.png"}/>
-                <AppName>
-                    Pocket Storage
-                </AppName>
+                <Link to="/">
+                    <AppName>
+                        Pocket Storage
+                    </AppName>
+                </Link>
             </AppNameWrapper>
             <Menu>
-                <MenuItem>Сотрудники</MenuItem>
-                <MenuItem>Товары</MenuItem>
-                <MenuItem>Выход</MenuItem>
+                <Link to="/employees">
+                    <MenuItem>Сотрудники</MenuItem>
+                </Link>
+                <Link to="/">
+                    <MenuItem>Товары</MenuItem>
+                </Link>
+                <Link to="/">
+                    <MenuItem>Выход</MenuItem>
+                </Link>
             </Menu>
         </Wrapper>
     )

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Routes, Route, Link} from 'react-router-dom';
 import { Employee } from './pages/employee';
 import { Layout } from './components/Layout'
+import { Employees } from './pages/employees';
 
 const WrapperContent = styled.div`
     margin-left:60px;
@@ -17,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route path={"employee"} element={<Employee/>}/>
-          <Route path={"employees"} element={""}/>
+          <Route path={"employees"} element={<Employees/>}/>
         </Route>
       </Routes>
     </WrapperContent>
