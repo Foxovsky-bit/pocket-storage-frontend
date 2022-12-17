@@ -44,3 +44,15 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
   background: #EEEEF0;        /* цвет зоны отслеживания */
 }
+
+.field {
+  width: 50%;
+  padding: 0;
+  border-width: 0px;
+  height: 42px;
+  padding-left: 16px;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 35px;
+  background: #F7F7F7;
+}

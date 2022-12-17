@@ -15,7 +15,7 @@ const ActiveButton = styled.button<{color:string,width:string,textColor:string,b
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    
+    display:block;
 `;
 
 const ButtonText = styled.div`
@@ -34,9 +34,9 @@ const Img = styled.img`
     margin-right:15px;
 `
 
-export const Button = (props:{text:string,color:string,img:string,width:string,textColor:string,border:string,margin:string}) => {
+export const Button = (props:{text:string,color:string,img:string,width:string,textColor:string,border:string,margin:string,type?:"button" | "submit" | "reset" | undefined}) => {
     return (
-        <ActiveButton color={props.color} width={props.width} textColor={props.textColor} border={props.border} margin={props.margin}>
+        <ActiveButton type={props.type} color={props.color} width={props.width} textColor={props.textColor} border={props.border} margin={props.margin}>
             <ContentWrapper>
                 <Img src={props.img}/>
                 <ButtonText>
