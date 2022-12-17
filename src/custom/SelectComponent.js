@@ -52,10 +52,11 @@ const SelectComponent = React.forwardRef(
       <div className="dropdown-container" ref={ref}>
         <div className="input-container" onClick={onInputClick}>
           <input
-            type="text"
             value={inputValue}
             placeholder={placeholder}
             onChange={onInputChange}
+            id="jobTitle" 
+            name="jobTitle"
           />
           <div className="input-arrow-container">
             <i className="input-arrow" />

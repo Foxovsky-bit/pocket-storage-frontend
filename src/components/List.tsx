@@ -15,10 +15,10 @@ const Item = styled.div`
     padding: 8px 21px;
     margin-bottom: 5px;
     display:flex;
+    justify-content: space-between;
 `;
 
 const  ItemValue = styled.div<{size:number}>`
-    width:${props => 100/props.size}%;
 `;
 
 export const List = (props:{currentList:Array<IArchieveAction | IDevice | IEmployee | IGood>}) => {

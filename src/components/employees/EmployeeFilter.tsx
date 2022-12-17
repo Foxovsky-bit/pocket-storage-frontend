@@ -4,6 +4,7 @@ import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import {Title} from '../employee/ActionArchive'
 import { SearchInput } from '../SearchInput';
+import { Link } from 'react-router-dom';
 
 const EmployeeFilterWrapper = styled.div`
     background: #FFFFFF;
@@ -19,7 +20,7 @@ const FlexWrapper = styled.div`
     justify-content: space-between;
 `;
 
-const jobTitles:Array<IOption> = [
+export const jobTitles:Array<IOption> = [
     { key: 1, value: "Должность 1" },
     { key: 2, value: "Должность 2" },
     { key: 3, value: "Должность 3" },
@@ -32,7 +33,9 @@ export const EmployeeFilter = () => {
             <Title>Фильтры</Title>
             <Dropdown placeholer={"Должность"} options={jobTitles}/>
             <FlexWrapper>
-                <Button text={"Добавить сотрудника"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
+                <Link to="/createEmployee">
+                    <Button text={"Добавить сотрудника"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
+                </Link>
                 <SearchInput/>
             </FlexWrapper>
         </EmployeeFilterWrapper>
