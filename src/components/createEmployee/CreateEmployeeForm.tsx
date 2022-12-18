@@ -5,15 +5,7 @@ import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { jobTitles } from '../employees/EmployeeFilter';
 
-const FormWrapper = styled.div`
-    background: #FFFFFF;
-    border-radius: 35px;
-    padding: 36px 48px;
-    height:461px;
-    margin-bottom:30px;
-`;
-
-const FieldWrapper = styled.div`
+export const FieldWrapper = styled.div`
     margin-bottom:30px;
 `;
 

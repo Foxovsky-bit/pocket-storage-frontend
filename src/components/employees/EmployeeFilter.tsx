@@ -33,7 +33,7 @@ export const EmployeeFilter = () => {
             <Title>Фильтры</Title>
             <Dropdown placeholer={"Должность"} options={jobTitles}/>
             <FlexWrapper>
-                <Link to="/createEmployee">
+                <Link to={"../createEmployee"}>
                     <Button text={"Добавить сотрудника"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
                 </Link>
                 <SearchInput/>
