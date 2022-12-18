@@ -7,6 +7,7 @@ import { Layout } from './components/Layout'
 import { Employees } from './pages/employees';
 import { Goods } from './pages/goods';
 import { CreateEmployee } from './pages/createEmployee';
+import { SingIn } from './pages/signIn';
 
 const WrapperContent = styled.div`
     margin-left:60px;
@@ -18,7 +19,8 @@ function App() {
   return (
     <WrapperContent>
       <Routes>
-        <Route path="/" element={<Layout/>}>
+        <Route path={"/"} element={<SingIn/>}/>
+        <Route path={"authorized"} element={<Layout/>}>
           <Route path={"employee"} element={<Employee/>}/>
           <Route path={"employees"} element={<Employees/>}/>
           <Route path={"goods"} element={<Goods/>}/>

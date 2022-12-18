@@ -38,7 +38,9 @@ export const Button = (props:{text:string,color:string,img:string,width:string,t
     return (
         <ActiveButton type={props.type} color={props.color} width={props.width} textColor={props.textColor} border={props.border} margin={props.margin}>
             <ContentWrapper>
+                { props.img &&
                 <Img src={props.img}/>
+                }
                 <ButtonText>
                     {props.text}
                 </ButtonText>

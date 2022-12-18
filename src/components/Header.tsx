@@ -37,14 +37,15 @@ const MenuItem = styled.li`
     margin-left: 33px;
 `;
 
-const AppNameWrapper = styled.div`
+const AppNameWrapper = styled.div<{authtorized:boolean}>`
     display:flex;
+    margin: ${props => !props.authtorized ? "auto" : "0"};
 `;
 
-export const Header = () => {
+export const Header = (props:{authtorized:boolean}) => {
     return (
         <Wrapper>
-            <AppNameWrapper>
+            <AppNameWrapper authtorized={props.authtorized}>
                 <Logo src={"../img/logo.png"}/>
                 <Link to="/">
                     <AppName>
@@ -52,20 +53,22 @@ export const Header = () => {
                     </AppName>
                 </Link>
             </AppNameWrapper>
+            { props.authtorized &&
             <Menu>
-                <Link to="/">
+                <Link to={"storages"}>
                     <MenuItem>Склады</MenuItem>
                 </Link>
-                <Link to="/employees">
+                <Link to={"employees"}>
                     <MenuItem>Сотрудники</MenuItem>
                 </Link>
-                <Link to="/goods">
+                <Link to={"goods"}>
                     <MenuItem>Товары</MenuItem>
                 </Link>
                 <Link to="/">
                     <MenuItem>Выход</MenuItem>
                 </Link>
             </Menu>
+            }
         </Wrapper>
     )
 }
