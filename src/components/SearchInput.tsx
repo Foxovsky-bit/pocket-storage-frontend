@@ -33,12 +33,12 @@ const SearchButton = styled.button`
     }
 `;
 
-export const SearchInput = () => {
+export const SearchInput = (props:{placeholder:string}) => {
 
     return (
         <>
             <SearchWrapper>
-                <Input type="text" placeholder="Введите название или SKU товара"/>
+                <Input type="text" placeholder={props.placeholder}/>
                 <SearchButton>Поиск</SearchButton>
             </SearchWrapper>
         </>

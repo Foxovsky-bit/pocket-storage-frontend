@@ -17,6 +17,7 @@ const EmployeeFilterWrapper = styled.div`
 const FlexWrapper = styled.div`
     display:flex;
     margin-top:30px;
+    margin-bottom:30px;
     justify-content: space-between;
 `;
 
@@ -31,13 +32,13 @@ export const EmployeeFilter = () => {
     return (
         <EmployeeFilterWrapper>
             <Title>Фильтры</Title>
-            <Dropdown placeholer={"Должность"} options={jobTitles}/>
             <FlexWrapper>
-                <Link to={"../createEmployee"}>
-                    <Button text={"Добавить сотрудника"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
-                </Link>
-                <SearchInput/>
+                <Dropdown placeholer={"Должность"} options={jobTitles}/>
+                <SearchInput placeholder={"Введите имя или должность сотрудника"}/>
             </FlexWrapper>
+            <Link to={"../createEmployee"}>
+                <Button text={"Добавить сотрудника"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
+            </Link>
         </EmployeeFilterWrapper>
     )
 }
