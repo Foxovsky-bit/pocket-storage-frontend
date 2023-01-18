@@ -3,8 +3,17 @@ import { Formik,Field,Form } from 'formik'
 import { ISignInFields } from '../../interfaces/ISignInFields';
 import { Button } from '../Button';
 import { FieldWrapper } from '../createEmployee/CreateEmployeeForm';
+import { login } from '../../requests/login';
+import { useNavigate } from "react-router-dom";
 
 export const SignInForm = () => {
+
+    const navigate = useNavigate();
+
+    // useEffect(() => {
+
+    // })
+
     return (
         <>
                 <Formik
@@ -15,7 +24,16 @@ export const SignInForm = () => {
                 onSubmit={(
                     values: ISignInFields,
                 ) => {
-                    console.log(values)
+                    login(values.login,values.password)
+                    .then(response => {
+                        if (response.error) {
+                            console.log(response.error) 
+                        }
+                        else {
+                            localStorage.setItem('session_key',JSON.stringify(response.result.session_key));
+                            navigate('../authorized/employees')
+                        }
+                    })
                 }}
                 >
                     <Form>

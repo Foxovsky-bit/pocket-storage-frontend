@@ -64,7 +64,7 @@ export const Header = (props:{authtorized:boolean}) => {
                 <Link to={"goods"}>
                     <MenuItem>Товары</MenuItem>
                 </Link>
-                <Link to="/">
+                <Link to="/" onClick={() => localStorage.removeItem('session_key')}>
                     <MenuItem>Выход</MenuItem>
                 </Link>
             </Menu>

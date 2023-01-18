@@ -5,11 +5,11 @@ import { Dropdown } from '../Dropdown';
 import {Title} from '../employee/ActionArchive'
 import { SearchInput } from '../SearchInput';
 
-const EmployeeFilterWrapper = styled.div`
+const StorageFilterWrapper = styled.div`
     background: #FFFFFF;
     border-radius: 35px;
     padding: 36px 48px;
-    height:173px;
+    height:110px;
     margin-bottom:30px;
 `;
 
@@ -44,21 +44,14 @@ const toggleArchive:Array<IOption> = [
     { key: 2, value: "Не показывать архивные" },
 ];
 
-export const GoodFilter = () => {
+export const StorageFilter = () => {
     return (
-        <EmployeeFilterWrapper>
+        <StorageFilterWrapper>
             <Title>Фильтры</Title>
             <FlexWrapper>
-                <Dropdown placeholer={"Склад"} options={storages}/>
-                <Row>
-                    <Dropdown placeholer={"Тег"} options={tags}/>
-                    <Dropdown placeholer={"Показывать архив?"} options={toggleArchive}/>
-                </Row>
+                <Button text={"Добавить склад"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
+                <SearchInput placeholder={"Введите название склада"}/>
             </FlexWrapper>
-            <FlexWrapper>
-                <Button text={"Добавить товар"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
-                <SearchInput placeholder={"Введите название или SKU товара"}/>
-            </FlexWrapper>
-        </EmployeeFilterWrapper>
+        </StorageFilterWrapper>
     )
 }
