@@ -26,7 +26,7 @@ export const GoodList = () => {
     return (
         <EmployeesWrapper>
             <Title>Товары</Title>
-            <List currentList={Employees}/>
+            <List currentList={Employees} redirect=""/>
         </EmployeesWrapper>
     )
 }

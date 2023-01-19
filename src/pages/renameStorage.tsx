@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Title } from '../components/employee/ActionArchive';
-import { CreateEmployeeForm } from '../components/createEmployee/CreateEmployeeForm';
+import { RenameStorageForm } from '../components/renameStorage/RenameStorageForm';
 
 export const FormWrapper = styled.div`
     background: #FFFFFF;
@@ -10,12 +10,12 @@ export const FormWrapper = styled.div`
     margin-bottom:30px;
 `;
 
-export const CreateEmployee = () => {
+export const RenameStorage = () => {
     return (
         <>
             <FormWrapper>
-                <Title>Добавить нового сотрудника</Title>
-                <CreateEmployeeForm/>
+                <Title>Переименовать склад</Title>
+                <RenameStorageForm/>
             </FormWrapper>
         </>
     )

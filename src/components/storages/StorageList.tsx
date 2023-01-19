@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { List } from '../List';
 import { Title } from '../employee/ActionArchive'
-import { IGood } from '../../interfaces/IGood';
+import { IStorage } from '../../interfaces/IStorage';
+import { useState, useEffect} from 'react'
+import { getStorages } from '../../requests/getStorages';
+import { useSearchParams } from 'react-router-dom';
 
 const StoragesWrapper = styled.div`
     background: #FFFFFF;
@@ -11,22 +14,36 @@ const StoragesWrapper = styled.div`
     margin-bottom:30px;
 `;
 
-const Employees:Array<IGood> = [
-    {name:"Название товара",sku:"SKU",count:"10"},
-    {name:"Название товара",sku:"SKU",count:"20"},
-    {name:"Название товара",sku:"SKU",count:"30"},
-    {name:"Название товара",sku:"SKU",count:"40"},
-    {name:"Название товара",sku:"SKU",count:"50"},
-    {name:"Название товара",sku:"SKU",count:"60"},
-    {name:"Название товара",sku:"SKU",count:"70"},
-    {name:"Название товара",sku:"SKU",count:"80"},
-]
-
 export const StorageList = () => {
+
+    const [storageList,setStorageList] = useState<Array<IStorage>>([]);
+    const [searchParams,setSearchParams] = useSearchParams();
+
+    const query = searchParams.get('search') || ''
+
+    useEffect(() => {
+        let storages:Array<IStorage> = [];
+        getStorages()
+        .then(response =>
+            {
+                response.result.map((storage:any) => {
+                    storages.push({id:storage.id,name:storage.name,redirect:"Редактировать"})
+                })
+                
+                if (query) {
+                    storages = storages.filter(
+                        (storage:any) => storage.name.includes(query)
+                    )
+                }
+
+                setStorageList(storages)
+            })
+    },[searchParams])
+
     return (
         <StoragesWrapper>
-            <Title>Товары</Title>
-            <List currentList={Employees}/>
+            <Title>Склады</Title>
+            <List currentList={storageList} redirect={`../renameStorage`}/>
         </StoragesWrapper>
     )
 }

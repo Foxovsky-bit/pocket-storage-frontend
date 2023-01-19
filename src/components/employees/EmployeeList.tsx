@@ -24,7 +24,7 @@ export const EmployeeList = () => {
     return (
         <EmployeesWrapper>
             <Title>Список сотрудников</Title>
-            <List currentList={Employees}/>
+            <List currentList={Employees} redirect=""/>
         </EmployeesWrapper>
     )
 }

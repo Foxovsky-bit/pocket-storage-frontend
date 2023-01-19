@@ -9,6 +9,8 @@ import { Goods } from './pages/goods';
 import { Storages } from './pages/storages';
 import { CreateEmployee } from './pages/createEmployee';
 import { SingIn } from './pages/signIn';
+import { CreateStorage } from './pages/createStorage';
+import { RenameStorage } from './pages/renameStorage';
 
 const WrapperContent = styled.div`
     margin-left:60px;
@@ -27,6 +29,8 @@ function App() {
           <Route path={"goods"} element={<Goods/>}/>
           <Route path={"createEmployee"} element={<CreateEmployee/>}/>
           <Route path={"storages"} element={<Storages/>}/>
+          <Route path={"createStorage"} element={<CreateStorage/>}/>
+          <Route path={"renameStorage/:id"} element={<RenameStorage/>}/>
         </Route>
       </Routes>
     </WrapperContent>
