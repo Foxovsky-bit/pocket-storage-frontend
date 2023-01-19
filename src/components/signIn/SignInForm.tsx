@@ -31,7 +31,7 @@ export const SignInForm = () => {
                         }
                         else {
                             localStorage.setItem('session_key',JSON.stringify(response.result.session_key));
-                            navigate('../authorized/employees')
+                            navigate('../authorized/goods')
                         }
                     })
                 }}

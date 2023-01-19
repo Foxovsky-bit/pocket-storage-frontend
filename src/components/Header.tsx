@@ -58,9 +58,9 @@ export const Header = (props:{authtorized:boolean}) => {
                 <Link to={"storages"}>
                     <MenuItem>Склады</MenuItem>
                 </Link>
-                <Link to={"employees"}>
+                {/* <Link to={"employees"}>
                     <MenuItem>Сотрудники</MenuItem>
-                </Link>
+                </Link> */}
                 <Link to={"goods"}>
                     <MenuItem>Товары</MenuItem>
                 </Link>
