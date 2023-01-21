@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import { IOption } from '../../interfaces/IOption';
 import { Button } from '../Button';
-import { Dropdown } from '../Dropdown';
 import {Title} from '../employee/ActionArchive'
 import { SearchInput } from '../SearchInput';
+import { useState,useEffect } from 'react';
+import { getProductCategories } from '../../requests/getProductCategories';
+import { ICategory } from '../../interfaces/ICategory';
+import { Link } from 'react-router-dom';
 
 const EmployeeFilterWrapper = styled.div`
     background: #FFFFFF;
@@ -25,39 +27,66 @@ const Row = styled.div`
     justify-content: space-between;
 `;
 
-const storages:Array<IOption> = [
-    { key: 1, value: "Склад 1" },
-    { key: 2, value: "Склад 2" },
-    { key: 3, value: "Склад 3" },
-    { key: 4, value: "Склад 4" }
-];
+const Select = styled.select`
+    width: 380px;
+    border: none;
+    border-radius: 35px;
+    padding-left: 16px;
+    appearance:none;
+    background:#F7F7F7 url(../img/arrow.svg) no-repeat right;
+    background-position-x: calc(100% - 12px);
+    height:42px;
+`;
 
-const tags:Array<IOption> = [
-    { key: 1, value: "Тег 1" },
-    { key: 2, value: "Тег 2" },
-    { key: 3, value: "Тег 3" },
-    { key: 4, value: "Тег 4" }
-];
-
-const toggleArchive:Array<IOption> = [
-    { key: 1, value: "Показывать архивные" },
-    { key: 2, value: "Не показывать архивные" },
-];
+const Option = styled.option`
+    
+`
+const categories:Array<string> = [];
 
 export const GoodFilter = () => {
+
+    const [currentCategory,setCurrentCategory] = useState<string>("");
+    const [categories,setCategories] = useState<Array<ICategory>>([]);
+
+    useEffect(() => {
+        let categories:Array<ICategory> = [];
+        getProductCategories()
+        .then(response => {
+                response.result.map((category:any) => {
+                    categories.push({id:category.id,name:category.name})
+                });
+                setCategories(categories)
+            })
+    },[])
+
     return (
         <EmployeeFilterWrapper>
             <Title>Фильтры</Title>
             <FlexWrapper>
-                <Dropdown placeholer={"Склад"} options={storages}/>
-                <Row>
-                    <Dropdown placeholer={"Тег"} options={tags}/>
-                    <Dropdown placeholer={"Показывать архив?"} options={toggleArchive}/>
-                </Row>
+                <Select onChange={e => {
+                        if  (categories.find((category:any) => category.name === e.target.value)) {
+                            const current = categories.find((category:any) => category.name === e.target.value);
+                            setCurrentCategory(current!.id);
+                        }
+                        else {
+                            setCurrentCategory('');
+                        }
+                    }}>
+                    <Option>Все</Option>
+                    {
+                        categories.map((category:ICategory) => {
+                            return (
+                                <Option>{category.name}</Option>
+                            )
+                        })
+                    }
+                </Select>
             </FlexWrapper>
             <FlexWrapper>
-                <Button text={"Добавить товар"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
-                <SearchInput placeholder={"Введите название или SKU товара"}/>
+                <Link to="../addProduct">
+                    <Button text={"Добавить товар"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
+                </Link>
+                <SearchInput placeholder={"Введите название или SKU товара"} category={currentCategory}/>
             </FlexWrapper>
         </EmployeeFilterWrapper>
     )

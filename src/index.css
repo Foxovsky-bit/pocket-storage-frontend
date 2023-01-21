@@ -56,3 +56,14 @@ body::-webkit-scrollbar-track {
   border-radius: 35px;
   background: #F7F7F7;
 }
+
+.select {
+  width: 50%;
+  border: none;
+  border-radius: 35px;
+  padding-left: 16px;
+  appearance:none;
+  background:#F7F7F7 url(../public/img/arrow.svg) no-repeat right;
+  background-position-x: calc(100% - 12px);
+  height:42px;
+}

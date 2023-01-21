@@ -18,9 +18,15 @@ const Item = styled.div`
     margin-bottom: 5px;
     display:flex;
     justify-content: space-between;
+    &:hover {
+        outline: 3px solid rgba(169, 62, 207, 1);
+        cursor:pointer;
+    }
 `;
 
 const  ItemValue = styled.div<{size:number}>`
+    width:33%;
+    text-align:center;
 `;
 
 const Redirect = styled.a`
