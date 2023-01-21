@@ -26,7 +26,7 @@ export const StorageFilter = () => {
                 <Link to={"../createStorage"}>
                     <Button text={"Добавить склад"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
                 </Link>
-                <SearchInput placeholder={"Введите название склада"}/>
+                <SearchInput placeholder={"Введите название склада"} category=''/>
             </FlexWrapper>
         </StorageFilterWrapper>
     )

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {useSearchParams} from 'react-router-dom'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SearchWrapper = styled.div`
     display:flex;
@@ -35,15 +35,20 @@ const SearchButton = styled.button`
     }
 `;
 
-export const SearchInput = (props:{placeholder:string}) => {
+export const SearchInput = (props:{placeholder:string,category:string}) => {
 
     const [params,setParams] = useSearchParams();
-    const [search,setSearch] = useState<{search:string}>();
+    const [search,setSearch] = useState<{search:string,category:string}>({search:'',category:''});
+
+    useEffect(() => {
+        console.log(search)
+        setSearch({category:props.category,search:search.search});
+    },[props.category])
 
     return (
         <>
             <SearchWrapper>
-                <Input type="text" placeholder={props.placeholder} onChange={e => setSearch({search:e.target.value})}/>
+                <Input type="text" placeholder={props.placeholder} onChange={e => setSearch({category:props.category,search:e.target.value})}/>
                 <SearchButton onClick={() => setParams(search)}>Поиск</SearchButton>
             </SearchWrapper>
         </>

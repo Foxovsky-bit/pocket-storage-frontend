@@ -1,5 +1,4 @@
-export interface IGood {
-    id:string,
+export interface IProductFields {
     name:string,
     SKU:string,
     barcode:string,

@@ -34,7 +34,7 @@ export const EmployeeFilter = () => {
             <Title>Фильтры</Title>
             <FlexWrapper>
                 <Dropdown placeholer={"Должность"} options={jobTitles}/>
-                <SearchInput placeholder={"Введите имя или должность сотрудника"}/>
+                <SearchInput placeholder={"Введите имя или должность сотрудника"} category=""/>
             </FlexWrapper>
             <Link to={"../createEmployee"}>
                 <Button text={"Добавить сотрудника"} img={"../img/plus.png"} color={"white"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid #A93ECF"} margin={""}></Button>
