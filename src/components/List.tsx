@@ -5,6 +5,8 @@ import { IEmployee } from '../interfaces/IEmployee';
 import { IGood } from '../interfaces/IGood';
 import { IStorage } from '../interfaces/IStorage';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { IProductUnit } from '../interfaces/IProductUnit';
 
 const Item = styled.div`
     font-family: 'Inter';
@@ -38,14 +40,21 @@ const Redirect = styled.a`
     }
 `;
 
-export const List = (props:{currentList:Array<IArchieveAction | IDevice | IEmployee | IGood | IStorage>,redirect:string}) => {
+export const List = (props:{currentList:Array<IArchieveAction | IDevice | IEmployee | IGood | IStorage | IProductUnit>,redirect:string,clickable:boolean}) => {
+
+    const navigate = useNavigate()
+    console.log(props.currentList)
 
     return (
         <>
         {
             props.currentList.map((item:any) => {
                 return (
-                    <Item>
+                    <Item onClick={() => {
+                        if (props.clickable) {
+                            navigate(`${item.id}`)
+                        }
+                    }}>
                         {
                             Object.entries(item).map((value:any) => {
                                 if (value["0"] === 'redirect') {

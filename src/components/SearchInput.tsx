@@ -41,7 +41,6 @@ export const SearchInput = (props:{placeholder:string,category:string}) => {
     const [search,setSearch] = useState<{search:string,category:string}>({search:'',category:''});
 
     useEffect(() => {
-        console.log(search)
         setSearch({category:props.category,search:search.search});
     },[props.category])
 

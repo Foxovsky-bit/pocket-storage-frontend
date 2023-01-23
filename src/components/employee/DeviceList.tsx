@@ -27,7 +27,7 @@ export const DeviceList = () => {
     return (
         <DeviceWrapper>
             <Title>Девайсы</Title>
-            <List currentList={Devices} redirect=""/>
+            <List currentList={Devices} redirect="" clickable={false}/>
             <ButtonWrapper>
                 <Button text={"Редактировать сотрудника"} img={"../img/edit.png"} color={"rgba(169, 62, 207, 1)"} textColor={"white"} width="280" border={""} margin={""}></Button>
                 <Button text={"Удалить сотрудника"} img={"../img/delete.png"} color={"rgba(255, 255, 255, 1)"} textColor={"rgba(153, 0, 0, 1)"} width="280" border={"2px solid #990000;"} margin={"20"}></Button>
