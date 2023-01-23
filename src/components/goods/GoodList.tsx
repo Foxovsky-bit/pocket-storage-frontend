@@ -62,7 +62,7 @@ export const GoodList = () => {
                 <Property>Штрих-код</Property>
                 <Property>Категория</Property>
             </PropertyWrapper>
-            <List currentList={goodList} redirect=""/>
+            <List currentList={goodList} redirect="" clickable={true}/>
         </GoodsWrapper>
     )
 }

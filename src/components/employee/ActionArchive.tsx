@@ -31,7 +31,7 @@ export const ActionArchive = () => {
     return (
         <ArchiveWrapper>
             <Title>Архив дейстий сотрудника</Title>
-            <List currentList={ArchieveAction} redirect=""/>
+            <List currentList={ArchieveAction} redirect="" clickable={false}/>
         </ArchiveWrapper>
     )
 }

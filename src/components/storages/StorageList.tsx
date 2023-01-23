@@ -43,7 +43,7 @@ export const StorageList = () => {
     return (
         <StoragesWrapper>
             <Title>Склады</Title>
-            <List currentList={storageList} redirect={`../renameStorage`}/>
+            <List currentList={storageList} redirect={`../renameStorage`} clickable={false}/>
         </StoragesWrapper>
     )
 }
