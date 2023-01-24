@@ -1,21 +1,22 @@
 import styled from 'styled-components';
-import {Formik,Field,Form,useField} from 'formik'
+import {Formik,Field,Form} from 'formik'
 import { Button } from '../Button';
 import { IProductFields } from '../../interfaces/IProductFields';
 import { useState, useEffect } from 'react';
 import { ICategory } from '../../interfaces/ICategory';
 import { getProductCategories } from '../../requests/getProductCategories';
-import { addProduct } from '../../requests/addProduct';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { updateProduct } from '../../requests/updateProduct';
 
 export const FieldWrapper = styled.div`
     margin-bottom:30px;
 `;
 
-export const AddProductForm = () => {
+export const UpdateProductForm = () => {
 
     const [categories,setCategories] = useState<Array<ICategory>>([]);
     const navigate = useNavigate();
+    const {id} = useParams()
 
     useEffect(() => {
         let categories:Array<ICategory> = [];
@@ -26,7 +27,6 @@ export const AddProductForm = () => {
                 });
                 setCategories(categories)
             })
-        console.log(categories)
     },[])
 
     return (
@@ -42,7 +42,7 @@ export const AddProductForm = () => {
                     values: IProductFields,
                 ) => {
                     console.log(values)
-                    addProduct(values.name,values.SKU,values.barcode,categories.find((elem:ICategory) => elem.name === values.category)!.id)
+                    updateProduct(values.name,values.SKU,values.barcode,categories.find((elem:ICategory) => elem.name === values.category)!.id,id!)
                     .then(response => {
                         if (response.error) {
                             console.log(response.error) 
@@ -74,8 +74,8 @@ export const AddProductForm = () => {
                             }
                             </Field>
                         </FieldWrapper>
-                        <Button type="submit" text={"Добавить товар"} img={"../img/edit.png"} color={"rgba(169, 62, 207, 1)"} textColor={"white"} width="380" border={""} margin={""}></Button>
-                        <Button type="reset" text={"Очистить"} img={"../img/delete.png"} color={"rgba(255, 255, 255, 1)"} textColor={"rgba(153, 0, 0, 1)"} width="380" border={"2px solid #990000;"} margin={"20"}></Button>
+                        <Button type="submit" text={"Редактироать товар"} img={"../../img/edit.png"} color={"rgba(169, 62, 207, 1)"} textColor={"white"} width="380" border={""} margin={""}></Button>
+                        <Button type="reset" text={"Очистить"} img={"../../img/delete.png"} color={"rgba(255, 255, 255, 1)"} textColor={"rgba(153, 0, 0, 1)"} width="380" border={"2px solid #990000;"} margin={"20"}></Button>
                     </Form>
                 }
                 </Formik>

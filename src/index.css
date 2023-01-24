@@ -55,6 +55,10 @@ body::-webkit-scrollbar-track {
   position: relative;
   border-radius: 35px;
   background: #F7F7F7;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .select {
@@ -66,4 +70,8 @@ body::-webkit-scrollbar-track {
   background:#F7F7F7 url(../public/img/arrow.svg) no-repeat right;
   background-position-x: calc(100% - 12px);
   height:42px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
 }

@@ -36,12 +36,13 @@ const Select = styled.select`
     background:#F7F7F7 url(../img/arrow.svg) no-repeat right;
     background-position-x: calc(100% - 12px);
     height:42px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
 `;
 
-const Option = styled.option`
-    
-`
-const categories:Array<string> = [];
+const Option = styled.option``
 
 export const GoodFilter = () => {
 
@@ -72,7 +73,7 @@ export const GoodFilter = () => {
                             setCurrentCategory('');
                         }
                     }}>
-                    <Option>Все</Option>
+                    <Option>Все категории</Option>
                     {
                         categories.map((category:ICategory) => {
                             return (

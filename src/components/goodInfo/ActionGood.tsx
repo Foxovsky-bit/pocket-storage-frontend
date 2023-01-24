@@ -1,3 +1,4 @@
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '../Button';
 
@@ -8,11 +9,6 @@ const Wrapper = styled.div`
     min-height:366px;
     width: 30%;
     margin-bottom:30px;
-`;
-
-const ButtonWrapper = styled.div`
-    margin-top:30px;
-    margin:auto
 `;
 
 const Row = styled.div`
@@ -36,6 +32,9 @@ const Value = styled.div`
 `; 
 
 export const ActionGood = (props:{SKU?:string,barcode?:string,remaining?:number}) => {
+
+    const {id} = useParams()
+
     return (
         <Wrapper>
             <Row>
@@ -50,10 +49,9 @@ export const ActionGood = (props:{SKU?:string,barcode?:string,remaining?:number}
                 <ItemName>Остаток на складах</ItemName>
                 <Value>{props.remaining}</Value>
             </Row>
-            <ButtonWrapper>
+            <Link to={`../updateProduct/${id}`}>
                 <Button text={"Редактировать товар"} img={"../../img/edit.png"} color={"rgba(169, 62, 207, 1)"} textColor={"white"} width="280" border={""} margin={""}></Button>
-                <Button text={"Удалить товар"} img={"../../img/delete.png"} color={"rgba(255, 255, 255, 1)"} textColor={"rgba(153, 0, 0, 1)"} width="280" border={"2px solid #990000;"} margin={"20"}></Button>
-            </ButtonWrapper>
+            </Link>
         </Wrapper>
     )
 }
