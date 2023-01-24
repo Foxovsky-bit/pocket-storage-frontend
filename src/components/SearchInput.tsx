@@ -19,6 +19,10 @@ const Input = styled.input`
     position: relative;
     border-radius: 35px 0 0 35px;
     background: #F7F7F7;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
 `;
 
 const SearchButton = styled.button`

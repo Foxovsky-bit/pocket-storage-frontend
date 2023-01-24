@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { IOption } from '../../interfaces/IOption';
 import { Button } from '../Button';
-import { Dropdown } from '../Dropdown';
 import {Title} from '../employee/ActionArchive'
 import { SearchInput } from '../SearchInput';
 import { Link } from 'react-router-dom';
@@ -33,7 +32,6 @@ export const EmployeeFilter = () => {
         <EmployeeFilterWrapper>
             <Title>Фильтры</Title>
             <FlexWrapper>
-                <Dropdown placeholer={"Должность"} options={jobTitles}/>
                 <SearchInput placeholder={"Введите имя или должность сотрудника"} category=""/>
             </FlexWrapper>
             <Link to={"../createEmployee"}>

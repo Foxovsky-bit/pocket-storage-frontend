@@ -15,6 +15,24 @@ const StorageName = styled.div`
     color: #A93ECF;
 `;
 
+const PropertyWrapper = styled.div`
+    border-radius: 5px;
+    height: 19px;
+    padding: 8px 21px;
+    margin-bottom: 5px;
+    display:flex;
+    justify-content: space-between;
+`;
+
+const Property = styled.div`
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    width:33%;
+    text-align:center;
+`;
+
 
 export const StorageUnit = () => {
 
@@ -51,12 +69,18 @@ export const StorageUnit = () => {
         <>
             {
                 warehouses.map((warehouse) => {
-                    return (
-                        <>  
-                            <StorageName>Склад: {warehouse.name}</StorageName>
-                            <List currentList={warehouse.units} redirect="" clickable={false}/>
-                        </>
-                    )
+                    if (warehouse.units.length !== 0) {
+                        return (
+                            <>  
+                                <StorageName>{warehouse.name}</StorageName>
+                                <PropertyWrapper>
+                                    <Property>Номер ячейки</Property>
+                                    <Property>дата добавления</Property>
+                                </PropertyWrapper>
+                                <List currentList={warehouse.units} redirect="" clickable={false}/>
+                            </>
+                        )
+                    }
                 })
             }
         </>

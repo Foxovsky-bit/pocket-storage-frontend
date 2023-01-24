@@ -11,7 +11,7 @@ export const renameStorage = async(storageName:string,id:string) => {
             method: "rename_warehouse",
             params: {
                 id: id,
-                new_name: storageName,
+                new_name: `Склад: ${storageName}`,
             }
         })
     });

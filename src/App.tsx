@@ -11,6 +11,7 @@ import { CreateStorage } from './pages/createStorage';
 import { RenameStorage } from './pages/renameStorage';
 import { AddProduct } from './pages/addProduct';
 import { GoodInfo } from './pages/goodInfo';
+import { UpdateProduct } from './pages/upateProduct';
 
 const WrapperContent = styled.div`
     margin-left:60px;
@@ -31,7 +32,8 @@ function App() {
           <Route path={"createStorage"} element={<CreateStorage/>}/>
           <Route path={"renameStorage/:id"} element={<RenameStorage/>}/>
           <Route path={"addProduct"} element={<AddProduct/>}/>
-        </Route>
+          <Route path={"updateProduct/:id"} element={<UpdateProduct/>}/>
+        </Route> 
       </Routes>
     </WrapperContent>
   )

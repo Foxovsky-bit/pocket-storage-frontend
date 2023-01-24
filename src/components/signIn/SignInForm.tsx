@@ -10,10 +10,6 @@ export const SignInForm = () => {
 
     const navigate = useNavigate();
 
-    // useEffect(() => {
-
-    // })
-
     return (
         <>
                 <Formik
@@ -41,10 +37,9 @@ export const SignInForm = () => {
                             <Field className="field" id="login" name="login" placeholder="Логин"/>
                         </FieldWrapper>
                         <FieldWrapper>
-                            <Field className="field" id="password" name="password" placeholder="Пароль" />
+                            <Field type="password" className="field" id="password" name="password" placeholder="Пароль" />
                         </FieldWrapper>
-                        <Button type="submit" text={"Вход"} img={""} color={"rgba(169, 62, 207, 1)"} textColor={"white"} width="380" border={""} margin={""}></Button>
-                        <Button text={"Регистрация"} img={""} color={"rgba(255, 255, 255, 1)"} textColor={"rgba(169, 62, 207, 1)"} width="380" border={"2px solid rgba(169, 62, 207, 1)"} margin={"20"}></Button>
+                        <Button type="submit" text={"Вход"} img={""} color={"rgba(169, 62, 207, 1)"} textColor={"white"} width="380" border={""} margin={""}/>
                     </Form>
                 </Formik>
         </>

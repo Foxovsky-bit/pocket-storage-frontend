@@ -10,7 +10,7 @@ export const createStorage = async(storageName:string) => {
             id: 0,
             method: "add_warehouse",
             params: {
-                name: storageName
+                name: `Склад: ${storageName}`
             }
         })
     });
